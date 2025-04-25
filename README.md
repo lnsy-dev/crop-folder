@@ -1,6 +1,6 @@
 # Crop Folder
 
-A powerful Node.js application that helps you batch crop images in a folder through a web interface. Perfect for processing scans, photos, or any collection of images.
+A Node.js application that helps you batch crop images in a folder through a web interface. Perfect for processing scans, photos, or any collection of images.
 
 ## Features
 
