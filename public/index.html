@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Cropper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Image Cropper</h1>
+      <div class="navigation">
+        <button id="prevBtn">Previous</button>
+        <span id="imageCounter">Image 0 of 0</span>
+        <button id="nextBtn">Next</button>
+      </div>
+    </header>
+    
+    <main>
+      <div class="metadata-panel">
+        <div class="form-group">
+          <label for="globalName">Global Name:</label>
+          <input type="text" id="globalName" placeholder="Name for all images">
+        </div>
+      </div>
+      
+      <div class="image-container">
+        <div id="cropperContainer">
+          <img id="currentImage" src="" alt="Current image">
+          <div id="cropBoxContainer"></div>
+          <div id="orientationIndicator" class="orientation-indicator hidden">
+            <div class="orientation-indicator-content">
+              <span>EXIF Orientation Detected</span>
+              <span id="orientationAngle"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="controls">
+        <div class="control-group">
+          <div class="crop-controls">
+            <button id="addCropBtn" class="action-btn">+ Add Crop</button>
+            <button id="deleteCropBtn" class="action-btn">- Remove Selected</button>
+            <div class="crop-info">
+              <span>Selected: </span>
+              <span id="selectedCropIndex">None</span>
+            </div>
+          </div>
+          
+          <div class="dimensions">
+            <span id="cropDimensions">0 x 0</span>
+          </div>
+          
+          <div class="metadata-controls">
+            <div class="form-group">
+              <label for="subName">Sub-Name:</label>
+              <input type="text" id="subName" placeholder="Auto-numbered">
+            </div>
+            
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <input type="text" id="description" placeholder="Optional description">
+            </div>
+          </div>
+          
+          <div class="rotation-controls">
+            <label for="rotationAngle">Rotation:</label>
+            <input type="range" id="rotationAngle" min="-180" max="180" value="0" step="1">
+            <span id="rotationValue">0°</span>
+            <button id="resetRotationBtn" class="small-btn">Reset</button>
+          </div>
+        </div>
+        
+        <button id="cropBtn" class="primary-btn">Crop All</button>
+      </div>
+    </main>
+    
+    <div id="filePreview" class="file-preview hidden">
+      <h3>Output Preview</h3>
+      <div class="preview-content">
+        <p>Files will be saved in: <code id="outputPath">cropped/</code></p>
+        <div id="filenamePreview" class="filename-list"></div>
+      </div>
+    </div>
+    
+    <div id="message" class="message hidden"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> 
